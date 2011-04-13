@@ -1,0 +1,19 @@
+defaults: &defaults
+  host: localhost
+  port: 27017
+
+development:
+  <<: *defaults
+  database: dislike_development
+
+test:
+  <<: *defaults
+  database: dislike_test
+
+production:
+  <<: *defaults
+  database: dislike
+
+staging:
+  <<: *defaults
+  database: dislike
