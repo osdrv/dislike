@@ -21,5 +21,8 @@ end
 
 get '/plugins/dislike.php' do
   puts params
+  @layout = params['layout']
+  @layout ||= 'box_count'
+  @count = 123
   erb :dislike
 end
