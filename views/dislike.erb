@@ -1,5 +1,16 @@
+<script type="text/javascript" charset="utf-8" src='/js/jq.js'></script>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<div id="fb-root"></div>
+<script>
+  FB.init({ 
+    appId: '218626764820932',
+    cookie: true,
+    status: true,
+    xfbml: true 
+  });
+</script>
 <div id="LikePluginPagelet">
-  <div id="connect_widget_4da7523dd011d2740150016" class="connect_widget button_count" style="">
+  <div id="connect_widget" class="connect_widget button_count" style="">
     <div>
       <div class="connect_widget_number_cloud" style="width: 47px; visibility: visible; height: 24px; ">
         <table class="uiGrid connect_widget_number_cloud_summary" cellspacing="0" cellpadding="0">
@@ -10,8 +21,8 @@
               </td>
               <td>
                 <span>
-                  <span class="connect_widget_connected_text hidden_elem"><%= @count %></span>
-                  <span style='display: none;' class="connect_widget_not_connected_text">41</span>
+                  <span class="connect_widget_connected_text"><%= @count %></span>
+                  <span style='display: none;' class="connect_widget_not_connected_text"><%= @count + 1 %></span>
                 </span>
               </td>
             </tr>
@@ -32,7 +43,7 @@
                     </span>
                   </td>
                   <td>
-                    <span class="like_reminder">You like this.</span>
+                    <span class="like_reminder">You dislike this.</span>
                   </td>
                 </tr>
               </tbody>
@@ -53,3 +64,41 @@
     </div>
   </div>
 </div>
+<script type="text/javascript" charset="utf-8">
+  function login_if_not_yet() {
+    FB.getLoginStatus(function(response) {
+      if (response.session) {
+        var data = {}
+        $.extend(data, response.session)
+        delete data['__proto__']
+        increment(data)
+      } else {
+        FB.login(function(res) {
+          console.log(res)
+        })
+      }
+    })
+  }
+  
+  function increment(ses_data) {
+    var data = {}
+    $.extend(data, ses_data, {
+      href: '<%= @href %>',
+      hash: '<%= @hash %>'
+    })
+    $.post(
+      '<%= @current_url %>',
+      data,
+      function(res) {
+        alert('ok')
+      }
+    )
+  }
+</script>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('.connect_widget_like_button').click(function() {
+      login_if_not_yet()
+    })
+  })
+</script>

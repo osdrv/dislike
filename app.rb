@@ -20,9 +20,20 @@ get '/' do
 end
 
 get '/plugins/dislike.php' do
-  puts params
   @layout = params['layout']
   @layout ||= 'box_count'
-  @count = 123
+  @href = params['href']
+  @hash = make_url_hash(@href)
+  @count = Dislike.count_for_url(@href)
+  @current_url = request.url
   erb :dislike
+end
+
+post '/plugins/dislike.php' do
+  check = request.xhr?
+  check = (make_url_hash(params['href']) == params['hash'])
+  if check
+    d = Dislike.new(:fb_uid => params['uid'], :url => params['href'])
+    d.save
+  end
 end
