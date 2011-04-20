@@ -87,7 +87,7 @@ img.tracking_pixel{height:1px;position:absolute;visibility:hidden;width:1px}
 .connect_comment_widget.like_button_dark .connect_comment_widget_description{color:#ccc}
 body.transparent_widget{background-color:transparent;overflow:hidden}
 .connect_widget{background-color:transparent}
-.connect_widget .connect_widget_facebook_favicon{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat -1px -47px transparent;display:block;height:14px;padding:0 0 0 0;width:14px;position:absolute;left:-1px}
+.connect_widget .connect_widget_facebook_favicon{background:url(/i/sprite.png) no-repeat -1px -47px transparent;display:block;height:14px;padding:0 0 0 0;width:14px;position:absolute;left:-1px}
 .connect_widget .connect_widget_interactive_area{border-collapse:collapse}
 .connect_widget td.connect_widget_vertical_center{border-spacing:0;font-size: 11px;line-height:normal;padding:0}
 .connect_widget td.connect_widget_button_cell{vertical-align:top}
@@ -105,7 +105,7 @@ a.connect_widget_like_button:hover{text-decoration:none}
 .like_widget_dark div.connect_widget_number_cloud{background-color:#c7c7c7;border-color:#c7c7c7}
 div.connect_widget_number_cloud table.connect_widget_number_cloud_summary{margin-left:auto;margin-right:auto}
 div.connect_widget_number_cloud table.connect_widget_number_cloud_summary td{font-size: 13px}
-.thumbs_up_icon{width:15px;height:15px;margin-right:2px;background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) -1px -32px no-repeat}
+.thumbs_up_icon{width:15px;height:15px;margin-right:2px;background:url(/i/sprite.png) -1px -32px no-repeat}
 .like_widget_dark .thumbs_up_icon{background-position:-1px -2px}
 .like_widget_dark div.connect_widget_number_cloud_extension a{color:#333}
 div.connect_widget_number_cloud .connect_widget_text{padding-left:0}
@@ -123,9 +123,9 @@ div.connect_widget_number_cloud_extension_text td{height:30px;text-align:center;
 div.connect_widget_number_cloud_extension span.like_reminder{color:#777;font-size: 9px}
 .like_widget_dark div.connect_widget_number_cloud_extension span.like_reminder{color:#333;font-size: 9px}
 table.connect_widget_button_count_summary,table.connect_widget_simple_summary{background-color:#eceef5;color:#000;font-size: 11px;height:21px}
-table.connect_widget_button_count_summary div.thumbs_up{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat 3px -32px #eceef5;height:15px;width:18px}
-td.connect_widget_simple_including div.simple_liked{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat 3px -47px #eceef5;height:15px;width:18px}
-.like_button_simple .connect_widget_like_button .liketext{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat 0 -47px #eceef5}
+table.connect_widget_button_count_summary div.thumbs_up{background:url(/i/sprite.png) no-repeat 3px -32px #eceef5;height:15px;width:18px}
+td.connect_widget_simple_including div.simple_liked{background:url(/i/sprite.png) no-repeat 3px -47px #eceef5;height:15px;width:18px}
+.like_button_simple .connect_widget_like_button .liketext{background:url(/i/sprite.png) no-repeat 0 -47px #eceef5}
 .connect_widget_rtl table.connect_widget_button_count_summary div.thumbs_up{background-position:-1px 0}
 table.connect_widget_button_count_summary div.undo{background-color:#eceef5;height:21px;width:18px}
 .like_button_dark table.connect_widget_button_count_summary div.undo{background-color:#c7c7c7}
@@ -133,7 +133,7 @@ table.connect_widget_button_count_summary label.undo_button{margin-left:6px;marg
 table.connect_widget_button_count_summary div.summary_text{padding-left:3px;padding-right:6px;white-space:nowrap}
 table.connect_widget_simple_summary div.summary_text{padding-left:3px;padding-right:6px;white-space:nowrap;color:#ccc}
 .like_button_dark table.connect_widget_button_count_summary,.like_button_dark table.connect_widget_simple_summary{background-color:#c7c7c7}
-.like_button_dark table.connect_widget_button_count_summary div.thumbs_up{background:transparent url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat 3px -3px}
+.like_button_dark table.connect_widget_button_count_summary div.thumbs_up{background:transparent url(/i/sprite.png) no-repeat 3px -3px}
 .connect_widget_rtl .like_button_dark table.connect_widget_button_count_summary div.thumbs_up{background-position:-1px -3px}
 .connect_widget_button_count_count{background:#efefef;border:1px solid #c1c1c1;float:left;font-weight:normal;height:14px;margin-left:1px;min-width:15px;padding:1px 2px 1px 2px;text-align:center}
 .like_button_dark div.connect_widget_button_count_count{background-color:#c7c7c7;border-color:#c7c7c7}
@@ -149,7 +149,7 @@ td.connect_widget_button_count_including .connect_widget_button_count_count{back
 .button_count .connect_widget_like_button .vertical{padding:2px 3px 3px 2px}
 .connect_widget_like_button .horizontal{height:100%;width:100%;position:absolute;display:block;top:-3px;left:-3px;padding-left:1px;border-left:solid 1px;border-right:solid 1px}
 .connect_widget_like_button .corner_mask{overflow:hidden;width:3px;height:3px;position:absolute;display:block}
-.connect_widget_like_button .corner{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png);height:6px;width:6px;display:block}
+.connect_widget_like_button .corner{background-image:url(/i/sprite.png);height:6px;width:6px;display:block}
 .connect_widget_like_button .topleft{top:-6px;left:-3px}
 .connect_widget_like_button .topleft .corner{margin:0 0}
 .connect_widget_like_button .topright{top:-6px;right:0}
@@ -158,7 +158,7 @@ td.connect_widget_button_count_including .connect_widget_button_count_count{back
 .connect_widget_like_button .bottomright .corner{margin:-3px 0 0 -3px}
 .connect_widget_like_button .bottomleft{bottom:0;left:-3px}
 .connect_widget_like_button .bottomleft .corner{margin:-3px 0 0 0}
-.connect_widget_like_button .liketext{color:#3b5998;display:block;padding-left:17px;background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) -1px -33px no-repeat;white-space:nowrap}
+.connect_widget_like_button .liketext{color:#3b5998;display:block;padding-left:17px;background:url(/i/sprite.png) -1px -33px no-repeat;white-space:nowrap}
 .connect_widget_like_button .liketextwithimage img{margin-bottom:-2px;margin-right:4px;width:13px}
 .hidden .connect_widget_like_button .liketextwithimage img{height:0;margin:0;padding:0;width:0}
 .connect_widget_like_button .fbLikeButtonTrackingPixel{display:inline;height:0;width:0}
@@ -222,18 +222,18 @@ div.connect_widget_comment_box_upward_nub{background:transparent url(http://stat
 .connect_widget .page_stream img{max-width:120px}
 .connect_widget.button_count{margin-bottom:5px}
 body.ie7 .connect_widget a.connect_widget_like_button,body.ie8 .connect_widget a.connect_widget_like_button,body.ie9 .connect_widget a.connect_widget_like_button{position:relative;margin:6px 0 0 3px;border:0;background-color:transparent !important;padding:0;overflow:visible}
-.connect_widget_like_button .liketext{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) -1px -33px no-repeat}
+.connect_widget_like_button .liketext{background:url(/i/sprite.png) -1px -33px no-repeat}
 .connect_widget a.like_button_no_like:hover .piece,.connect_widget a.like_button_no_like:hover{background-color:#eceef5;border-color:#9dacce}
 .connect_widget .like_button_like,.connect_widget .like_button_like .piece{background-color:#eee;border-color:#ddd;cursor:default}
 .connect_widget .like_button_dark .like_button_like,.connect_widget .like_button_dark .like_button_like .piece{background-color:#444;border-color:#555;cursor:default}
 .connect_widget .like_button_like .corner{background-position:10px -70px}
 .connect_widget .like_button_dark .like_button_like .corner{background-position:10px -76px}
 .connect_widget .like_button_like .liketext{background-image:none;clear:right;color:#aaa}
-.connect_widget .tombstone_cross{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat 0 -128px;display:block;float:left;height:12px;margin-right:3px;width:14px;z-index:99}
+.connect_widget .tombstone_cross{background:url(/i/sprite.png) no-repeat 0 -128px;display:block;float:left;height:12px;margin-right:3px;width:14px;z-index:99}
 .connect_widget .like_button_no_like .tombstone_cross{background-image:none}
-.connect_widget .like_button_dark .like_button_like .tombstone_cross{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png) no-repeat 0 -156px}
+.connect_widget .like_button_dark .like_button_like .tombstone_cross{background:url(/i/sprite.png) no-repeat 0 -156px}
 .connect_widget .like_button_like .tombstone_cross:hover{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zf/r/UQwL6vNuH-P.gif);background-position:0 -44px;cursor:pointer;height:11px;margin-left:1px;margin-right:5px;margin-top:1px;width:11px}
-.connect_widget .like_button_simple .like_button_like .tombstone_cross:hover{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/zm/r/QoRACSmkC2M.png);background-position:0 -128px;cursor:auto;height:12px;margin-left:0;margin-right:3px;margin-top:0;width:14px}
+.connect_widget .like_button_simple .like_button_like .tombstone_cross:hover{background-image:url(/i/sprite.png);background-position:0 -128px;cursor:auto;height:12px;margin-left:0;margin-right:3px;margin-top:0;width:14px}
 .connect_widget .like_button_dark .like_button_like .tombstone_cross:hover{background-position:0 -55px}
 .connect_widget .connect_button_container .like_button_like .liketext,.connect_widget .connect_widget_connect_button .like_button_like .liketext{padding-left:17px}
 .connect_widget_comment_box div.connect_widget_comment_box_nub{background:none}

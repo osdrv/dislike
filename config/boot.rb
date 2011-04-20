@@ -10,3 +10,4 @@ Mongoid.load!(File.join(settings.config, 'mongoid.yml'))
 Dir[settings.lib + '/model/*.rb'].each { |file| require file }
 
 require File.join(settings.lib, 'util', 'url_helper')
+require File.join(settings.lib, 'util', 'fb_helper')

@@ -20,12 +20,15 @@ get '/' do
 end
 
 get '/plugins/dislike.php' do
+  @app_id = '218626764820932'
   @layout = params['layout']
   @layout ||= 'box_count'
   @href = params['href']
   @hash = make_url_hash(@href)
   @count = Dislike.count_for_url(@href)
   @current_url = request.url
+  uid = get_fb_user_id_by_cookie(request.cookies["fbs_#{@app_id}"])
+  @user_voted = Dislike.user_voted?(uid, @href)
   erb :dislike
 end
 

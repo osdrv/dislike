@@ -3,13 +3,14 @@
 <div id="fb-root"></div>
 <script>
   FB.init({ 
-    appId: '218626764820932',
+    appId: '<%= @app_id %>',
     cookie: true,
     status: true,
     xfbml: true 
   });
 </script>
-<div id="LikePluginPagelet">
+
+<div id="DislikePluginPagelet">
   <div id="connect_widget" class="connect_widget button_count" style="">
     <div>
       <div class="connect_widget_number_cloud" style="width: 47px; visibility: visible; height: 24px; ">
@@ -32,18 +33,18 @@
           <s></s>
           <i></i>
         </div>
-        <div style='display: none;' class="connect_widget_number_cloud_extension hidden_elem">
+        <div <% if !@user_voted %>style='display: none;'<% end %> class="connect_widget_number_cloud_extension hidden_elem">
           <div class="connect_widget_number_cloud_extension_text">
             <table class="uiGrid" cellspacing="0" cellpadding="0">
               <tbody>
                 <tr>
                   <td>
                     <span class="unlike_span hidden_elem">
-                      <a class="connect_widget_unlike_link">Unlike</a>
+                      <a class="connect_widget_unlike_link">Undislike</a>
                     </span>
                   </td>
                   <td>
-                    <span class="like_reminder">You dislike this.</span>
+                    <span style='display: none;' class="like_reminder">You dislike this.</span>
                   </td>
                 </tr>
               </tbody>
@@ -51,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="connect_widget_connect_button" style="margin-top: 8px">
+      <div <% if @user_voted %>style='display: none;'<% end %> class="connect_widget_connect_button" style="margin-top: 8px">
         <a class="connect_widget_like_button clearfix like_button_no_like" style="">
           <div class="tombstone_cross"></div>
           <span class="liketext">Disike</span>
@@ -90,7 +91,7 @@
       '<%= @current_url %>',
       data,
       function(res) {
-        alert('ok')
+        
       }
     )
   }
