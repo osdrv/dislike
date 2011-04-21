@@ -21,9 +21,15 @@
                 <div class="thumbs_up_icon"></div>
               </td>
               <td>
-                <span>
+                <span id='counter'>
                   <span class="connect_widget_connected_text"><%= @count %></span>
-                  <span style='display: none;' class="connect_widget_not_connected_text"><%= @count + 1 %></span>
+                  <span style='display: none;' class="connect_widget_not_connected_text">
+                    <% if @user_voted %>
+                      <%= @count - 1 %>
+                    <% else %>
+                      <%= @count + 1 %>
+                    <% end %>
+                  </span>
                 </span>
               </td>
             </tr>
@@ -33,7 +39,7 @@
           <s></s>
           <i></i>
         </div>
-        <div class="connect_widget_number_cloud_extension hidden_elem" <% if !@user_voted %>style='display: none;'<% end %>>
+        <div id='you_dislike_this' class="connect_widget_number_cloud_extension hidden_elem" style='display: none;'>
           <div class="connect_widget_number_cloud_extension_text">
             <table class="uiGrid" cellspacing="0" cellpadding="0">
               <tbody>
@@ -52,8 +58,8 @@
           </div>
         </div>
       </div>
-      <div <% if @user_voted %>style='display: none;'<% end %> class="connect_widget_connect_button" style="margin-top: 8px">
-        <a class="connect_widget_like_button clearfix like_button_no_like" style="">
+      <div class="connect_widget_connect_button" style="margin-top: 8px">
+        <a id='dislike_button' class="connect_widget_like_button clearfix <% if @user_voted %>like_button_like<% else %>like_button_no_like<% end %>" style="">
           <div class="tombstone_cross"></div>
           <span class="liketext">Disike</span>
         </a>
@@ -69,20 +75,33 @@
   function login_if_not_yet() {
     var args = arguments
     FB.getLoginStatus(function(response) {
-      if (response.session) {
+      var cb = function() {
         var data = {}
         $.extend(data, response.session)
         delete data['__proto__']
         if (typeof(args[0]) == 'function') args[0].call(document, data)
+      }
+      if (response.session) {
+        cb()
       } else {
         FB.login(function(res) {
-          console.log(res)
+          cb()
         })
       }
     })
   }
   
+  function renew_counter() {
+    var spans = $('#counter').children('span'),
+    visibles = spans.filter(':visible'),
+    invisibles = spans.filter(':hidden')
+    visibles.hide()
+    invisibles.show()
+  }
+  
   function increment(ses_data) {
+    renew_counter()
+    $('#dislike_button').removeClass('like_button_no_like').addClass('like_button_like')
     var data = {}
     $.extend(data, ses_data, {
       href: '<%= @href %>',
@@ -92,12 +111,13 @@
       '<%= @current_url %>',
       data,
       function(res) {
-        window.location.reload(false)
       }
     )
   }
 
   function decrement(ses_data) {
+    renew_counter()
+    $('#dislike_button').addClass('like_button_no_like').removeClass('like_button_like')
     var data = {}
     $.extend(data, ses_data, {
       href: '<%= @href %>',
@@ -108,7 +128,7 @@
       data: data,
       url: '<%= @current_url %>',
       success: function(res) {
-        window.location.reload(false)
+        
       }
     })
   }
@@ -117,10 +137,8 @@
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $('.connect_widget_like_button').click(function() {
-      login_if_not_yet(increment)
-    })
-    $('.connect_widget_unlike_link').click(function() {
-      login_if_not_yet(decrement)
+      var cb = $(this).filter('.like_button_like').length ? decrement : increment
+      login_if_not_yet(cb)
     })
   })
 </script>
