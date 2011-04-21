@@ -33,13 +33,13 @@
           <s></s>
           <i></i>
         </div>
-        <div <% if !@user_voted %>style='display: none;'<% end %> class="connect_widget_number_cloud_extension hidden_elem">
+        <div class="connect_widget_number_cloud_extension hidden_elem" <% if !@user_voted %>style='display: none;'<% end %>>
           <div class="connect_widget_number_cloud_extension_text">
             <table class="uiGrid" cellspacing="0" cellpadding="0">
               <tbody>
                 <tr>
                   <td>
-                    <span class="unlike_span hidden_elem">
+                    <span class="unlike_span">
                       <a class="connect_widget_unlike_link">Undislike</a>
                     </span>
                   </td>
@@ -67,12 +67,13 @@
 </div>
 <script type="text/javascript" charset="utf-8">
   function login_if_not_yet() {
+    var args = arguments
     FB.getLoginStatus(function(response) {
       if (response.session) {
         var data = {}
         $.extend(data, response.session)
         delete data['__proto__']
-        increment(data)
+        if (typeof(args[0]) == 'function') args[0].call(document, data)
       } else {
         FB.login(function(res) {
           console.log(res)
@@ -91,15 +92,35 @@
       '<%= @current_url %>',
       data,
       function(res) {
-        
+        window.location.reload(false)
       }
     )
   }
+
+  function decrement(ses_data) {
+    var data = {}
+    $.extend(data, ses_data, {
+      href: '<%= @href %>',
+      hash: '<%= @hash %>'
+    })
+    $.ajax({
+      type: 'DELETE',
+      data: data,
+      url: '<%= @current_url %>',
+      success: function(res) {
+        window.location.reload(false)
+      }
+    })
+  }
+
 </script>
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $('.connect_widget_like_button').click(function() {
-      login_if_not_yet()
+      login_if_not_yet(increment)
+    })
+    $('.connect_widget_unlike_link').click(function() {
+      login_if_not_yet(decrement)
     })
   })
 </script>

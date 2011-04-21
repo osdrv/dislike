@@ -8,6 +8,10 @@ class Dislike
   validates_presence_of :fb_uid, :url
 
   class << self
+    def user_vote(fb_uid, url)
+      Dislike.find(:first, :conditions => { :fb_uid => fb_uid, :url => url })
+    end
+
     def user_voted?(fb_uid, url)
       Dislike.count(:conditions => { :fb_uid => fb_uid, :url => url }) > 0
     end

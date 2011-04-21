@@ -40,3 +40,12 @@ post '/plugins/dislike.php' do
     d.save
   end
 end
+
+delete '/plugins/dislike.php' do
+  check = request.xhr?
+  check = (make_url_hash(params['href']) == params['hash'])
+  if check
+    d = Dislike.user_vote(params['uid'], params['href'])
+    d.delete if !d.nil?
+  end
+end
