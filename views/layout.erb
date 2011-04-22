@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="/s/s.css" type="text/css" media="screen" charset="utf-8" />
   </head>
   <body>
+    <script type="text/javascript" charset="utf-8" src='/js/jq.js'></script>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <div id="fb-root"></div>
+    <script>
+      FB.init({ 
+        appId: '<%= @app_id %>',
+        cookie: true,
+        status: true,
+        xfbml: true 
+      });
+    </script>
     <%= yield %>
   </body>
 </html>

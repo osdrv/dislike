@@ -1,1 +1,16 @@
-ololo
+<label for='dislike_url'>dislike url: </label>
+<input type='text' id='dislike_url' value='' />
+<br/>
+<input type="button" value="get code" id="get_code" />
+<br/>
+<textarea id='code' rows="8" cols="40"></textarea>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('#get_code').click(function() {
+      host = '<%= @base_host %>'
+      template = "<iframe src='http://%%host%%/plugins/dislike.php?href=%%url%%' border='0' width='450' height='65' frameborder='0' scrolling='no'></iframe>"
+      res = template.replace('%%host%%', host).replace('%%url%%', encodeURIComponent($('#dislike_url').val()))
+      $('#code').val(res)
+    })
+  })
+</script>

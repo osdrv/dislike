@@ -16,6 +16,8 @@ require File.join(File.dirname(__FILE__), 'config', 'boot.rb')
 set :erb, :layout_egine => :erb, :layout => :layout
 
 get '/' do
+  @base_host = request.host
+  @base_host += (request.port == 80) ? '' : ":#{request.port}"
   erb :index
 end
 
@@ -39,7 +41,10 @@ post '/plugins/dislike.php' do
   check = check && check_fb_user(request.cookies["fbs_#{@app_id}"])
   if check
     d = Dislike.new(:fb_uid => params['uid'], :url => params['href'])
-    d.save
+    d.save!
+  else
+    puts (make_url_hash(params['href']) == params['hash']).to_s
+    puts check_fb_user(request.cookies["fbs_#{@app_id}"]).to_s
   end
 end
 

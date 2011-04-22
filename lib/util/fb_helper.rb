@@ -7,17 +7,11 @@ def get_fb_user_id_by_cookie(cookie)
 end
 
 def check_fb_user(cookie)
-  puts cookie
   fb_uid = get_fb_user_id_by_cookie(cookie)
   return false if fb_uid.nil?
   user = FBUser.find_by_fbid(fb_uid)
-  if user.nil?
-    user = load_user_data(cookie)
-    return !user.nil?
-  else
-    fb_sess_h = parse_fb_cookie(cookie)
-    return user.access_token == fb_sess_h[:access_token]
-  end
+  user = load_user_data(cookie)
+  return !user.nil?
 end
 
 def parse_fb_cookie(cookie)

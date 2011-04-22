@@ -4,7 +4,7 @@ class Dislike
   field :url
   field :date
 
-  validates_uniqueness_of :fb_uid, :context => :url
+  validates_uniqueness_of :fb_uid, :scope => :url
   validates_presence_of :fb_uid, :url
 
   class << self
