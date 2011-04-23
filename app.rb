@@ -16,7 +16,6 @@ set :erb, :layout_egine => :erb, :layout => :layout
 
 get '/' do
   @base_host = request.host
-  @base_host += (request.port == 80) ? '' : ":#{request.port}"
   erb :index
 end
 
