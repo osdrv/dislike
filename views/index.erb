@@ -8,7 +8,7 @@
   $(function() {
     $('#get_code').click(function() {
       host = '<%= @base_host %>'
-      template = "<iframe src='http://%%host%%/plugins/dislike.php?href=%%url%%' border='0' width='450' height='65' frameborder='0' scrolling='no'></iframe>"
+      template = "<iframe src='http://%%host%%/plugins/dislike.php?href=%%url%%' border='0' width='65' height='65' frameborder='0' scrolling='no'></iframe>"
       res = template.replace('%%host%%', host).replace('%%url%%', encodeURIComponent($('#dislike_url').val()))
       $('#code').val(res)
     })
