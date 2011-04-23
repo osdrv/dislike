@@ -121,7 +121,7 @@
 </script>
 <script type="text/javascript" charset="utf-8">
   $(function() {
-    $('.connect_widget_like_button').click(function(e) {
+    $('#dislike_button').click(function(e) {
       var is_liked = $(this).filter('.like_button_like').length > 0,
       tombstone_clicked = $(e.target).filter('.tombstone_cross').length > 0,
       cb = is_liked? decrement : increment
