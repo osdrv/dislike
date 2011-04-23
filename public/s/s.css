@@ -1,7 +1,7 @@
 .DOMControl_placeholder{color:#777}
 .no_js .DOMControl_placeholder{color:#000}
 .DOMControl_shadow{left:-10000px;position:absolute;top:-10000px;white-space:pre-wrap}
-body{background:#fff;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size:11px;color:#333;margin:0;padding:0;text-align:left;direction:ltr;unicode-bidi:embed;overflow-y:scroll}
+body{background: transparent;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size:11px;color:#333;margin:0;padding:0;text-align:left;direction:ltr;unicode-bidi:embed;overflow-y:scroll}
 .mini_iframe,.serverfbml_iframe{overflow-y:visible}
 .auto_resize_iframe{height:auto}
 h1,h2,h3,h4,h5,h6{font-size:13px;color:#333;margin:0;padding:0}
