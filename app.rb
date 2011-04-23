@@ -24,7 +24,7 @@ end
 get '/plugins/dislike.php' do
   @layout = params['layout']
   @layout ||= 'box_count'
-  @app_id = '218626764820932'
+  @app_id = settings.fb_app_id
   @href = params['href']
   @hash = make_url_hash(@href)
   @count = Dislike.count_for_url(@href)
@@ -37,7 +37,7 @@ end
 post '/plugins/dislike.php' do
   check = request.xhr?
   check = check && (make_url_hash(params['href']) == params['hash'])
-  @app_id = '218626764820932'
+  @app_id = settings.fb_app_id
   check = check && check_fb_user(request.cookies["fbs_#{@app_id}"])
   if check
     d = Dislike.new(:fb_uid => params['uid'], :url => params['href'])
@@ -51,7 +51,7 @@ end
 delete '/plugins/dislike.php' do
   check = request.xhr?
   check = check && (make_url_hash(params['href']) == params['hash'])
-  @app_id = '218626764820932'
+  @app_id = settings.fb_app_id
   check = check && check_fb_user(request.cookies["fbs_#{@app_id}"])
   if check
     d = Dislike.user_vote(params['uid'], params['href'])
