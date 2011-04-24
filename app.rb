@@ -16,6 +16,7 @@ set :erb, :layout_egine => :erb, :layout => :layout
 
 get '/' do
   @base_host = request.host
+  @base_host += ":#{request.port}" if ![80, 8080].include?(request.port)
   erb :index
 end
 

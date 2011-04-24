@@ -1,9 +1,69 @@
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+<style type="text/css" media="screen">
+  body, input { font: 18px "lucida grande",tahoma,verdana,arial,sans-serif; margin: 20px; }
+  h1 { font-size: 48px; text-align: center; color: #313131;}
+  h1 span { margin-left: 20px;}
+  .content { clear: both; margin-top: 20px; }
+  .logo { width: 620px; float: left; }
+  .details { width: 40%; float: left; }
+  ul { padding-left: 20px;}
+  ul li { list-style-type: disc;}
+  .warning { font-size: 12px; color: #AAA; }
+  #fb { position: absolute; right: 100px; bottom: 150px; }
+  #me { position: absolute; font-size: 12px; text-align: center; bottom: 0; width: 90%; }
+  #me a { color: #999; }
+  #me a:hover { color: #395998; }
+</style>
+
+<h1><img src='/i/logo.png' width='50' height='50' /><span>Facebook dislike button</span></h1>
+
+<div class='content'>
+  <div class='logo'>
+    <img src='/i/big-button.png' />
+  </div>
+  <div class="details">
+    All this time we've got only 2 opportunities using FB:
+    <ul>
+      <li>like everything we see</li>
+      <li>left up with our humble opinion</li>
+    </ul>
+    <br/><br/>
+    Can anyone like your site? sure! Can anyone dislike your site? Hmmm, no... Is it real one's opinion? No!
+    <br/><br/>
+    Be honest with your visitors! they may have positive as well as negative opinion.
+    <br/><br/>
+    With dislike button your visitors can make a choose:
+    <ul>
+      <li>Like what them seeing</li>
+      <li>Dislike what them seeing</li>
+      <li>Keep some third variant (o_O)</li>
+    </ul>
+  </div>
+</div>
+
+<div style='clear: both;'></div>
+
 <label for='dislike_url'>dislike url: </label>
-<input type='text' id='dislike_url' value='' />
-<br/>
+<input type='text' id='dislike_url' value='http://' onclick='this.select()' />
 <input type="button" value="get code" id="get_code" />
 <br/>
-<textarea id='code' rows="8" cols="40"></textarea>
+<textarea id='code' rows="3" cols="40"></textarea>
+<div id="sandbox"></div>
+
+<div id="fb">
+  <div id='fb-root'></div>
+  <fb:like href="http://dislike.4pcbr.com" layout="box_count" show_faces="true" width="65" height='65' font="tahoma"></fb:like>
+  <iframe src='http://dislike.4pcbr.com/plugins/dislike.php?href=http%3A%2F%2Fdislike.4pcbr.com' border='0' width='65' height='65' frameborder='0' scrolling='no'></iframe>
+</div>
+
+<div class='warning'>
+  Warning! This is not official FB social widget. FB dislike button is a third party application. Like and dislike buttons are not synchronized for the security reasons. Keep in mind that anyone can get dislike button code with your page url and increment it some way.
+</div>
+
+<div id="me">
+  <a href='http://4pcbr.com'>4pcbr.com</a>
+</div>
+
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $('#get_code').click(function() {
@@ -11,6 +71,25 @@
       template = "<iframe src='http://%%host%%/plugins/dislike.php?href=%%url%%' border='0' width='65' height='65' frameborder='0' scrolling='no'></iframe>"
       res = template.replace('%%host%%', host).replace('%%url%%', encodeURIComponent($('#dislike_url').val()))
       $('#code').val(res)
+      $('#sandbox').html(res)
+    })
+    $('#code').click(function() {
+      this.select()
     })
   })
 </script>
+
+<div style="display:none;"><script type="text/javascript">
+(function(w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter1461889 = new Ya.Metrika({id:1461889,
+                    clickmap:true,
+                    trackLinks:true});
+        }
+        catch(e) { }
+    });
+})(window, 'yandex_metrika_callbacks');
+</script></div>
+<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+<noscript><div><img src="//mc.yandex.ru/watch/1461889" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
